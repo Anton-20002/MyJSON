@@ -1,0 +1,19 @@
+POST http://localhost:8080/MyJSON_war_exploded/base/users
+Accept: application/json
+Content-Type: application/json
+X-COM-PERSIST: TRUE
+
+
+
+
+testDATA
+
+
+
+
+<> 2020-01-11T105815.200.json
+<> 2020-01-11T105742.200.json
+<> 2019-12-15T051242.500.json
+
+
+###

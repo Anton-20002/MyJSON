@@ -1,0 +1,9 @@
+GET http://localhost:8080/MyJSON_war_exploded/base/users
+Accept: application/json
+Content-Type: application/json
+
+<> 2020-01-11T083154.200.json
+<> 2019-12-16T100314.200.json
+
+###
+

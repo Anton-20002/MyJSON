@@ -3,8 +3,9 @@ package logic;
 import javax.json.Json;
 import javax.json.JsonArray;
 import javax.json.JsonObject;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
+import javax.ws.rs.*;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 @Path("users")
 public class JSONresource {
@@ -25,4 +26,37 @@ public class JSONresource {
                 .add("age", age)
                 .build();
     }
+
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public JsonArray setDataArray(String data, @HeaderParam("Accept") String userAgent) {
+        System.out.println("Post apply!"+userAgent);
+        return Json.createArrayBuilder()
+                .add(data)
+                .build();
+    }
+
+    @DELETE
+    @Path("/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response removeData(@PathParam("id") int id) {
+        System.out.println("Data removed: "+id);
+        return Response.ok(getData("removed", id)).build();
+    }
+
+    @PUT
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Path("/{id}")
+    public JsonArray updateData(String data, @PathParam("id") int id) {
+
+        System.out.println("Update data with id: "+id);
+        System.out.println("Modified data: "+data);
+        return Json.createArrayBuilder()
+                .add(data)
+                .build();
+    }
+
+
 }
